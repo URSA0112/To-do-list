@@ -1,0 +1,37 @@
+.to-do-list-container{
+  display : flex;
+  flex-direction: column;
+  align-items: center;  
+  background-color: rgba(222, 235, 81, 0.3);
+  width:300px;
+  height:400px;
+  justify-self: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.list-container{
+  width: 90%;
+
+}
+.lists{
+  background-color:  rgba(235, 175, 211, 0.3);
+  width: 100%;
+  height: auto;
+  display:flex;
+}
+.eachlist {
+  background-color: rgba(82, 153, 246, 0.3);
+  width: 90%;
+  height: auto;
+  justify-self: center;
+}
+input{
+
+  
+}
+.display {
+  width :50px;
+  height: 20px;
+  background-color: aqua;
+}
