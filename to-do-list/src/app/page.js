@@ -2,21 +2,24 @@
 import { useState } from "react";
 
 function Inputvalue() {
-  let display = []
-  const [value, setValue] = useState("")
+  const [outputvalue, setOutputvalue] = useState([])
+  const [inputvalue, setInputvalue] = useState("")
+
   const change = (event) => {
-    setValue(event.target.value)
-  }
-  const output = () => { display.push(value) }
-  const click = () => {
-    alert(value)
+    setInputvalue(event.target.value)
   }
 
+  outputvalue.push(inputvalue)
+const show =()=>{
+
+setOutputvalue(outputvalue)
+console.log(outputvalue)
+}
   return (
     <>
-      <input type="text" value={value} onChange={change} placeholder="add plan here"></input>
-      <button onClick={click}>add</button>
-      <div className="display" >{change}</div>
+      <input type="text" value={inputvalue} onChange={change} placeholder="add plan here"></input>
+      <button onClick={show}>show</button>
+      <div className="display">{outputvalue}</div>
     </>
   )
 }
@@ -25,7 +28,6 @@ function InputSection() {
   return (
     <>
       <Inputvalue></Inputvalue>
-
     </>
   )
 }
@@ -67,6 +69,7 @@ export default function Home() {
     <>
       <div className="to-do-list-container">
         <InputSection></InputSection>
-        <ListSection></ListSection></div>
+        <ListSection></ListSection>
+      </div>
     </>)
 }
