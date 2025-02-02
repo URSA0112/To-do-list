@@ -1,37 +1,38 @@
-.to-do-list-container{
-  display : flex;
+.to-do-list-container {
+  display: flex;
   flex-direction: column;
-  align-items: center;  
+  align-items: center;
   background-color: rgba(222, 235, 81, 0.3);
-  width:300px;
-  height:400px;
+  width: 300px;
+  height: 400px;
   justify-self: center;
   gap: 10px;
   padding: 20px;
+
 }
 
-.list-container{
+.list-container {
   width: 90%;
-
 }
-.lists{
-  background-color:  rgba(235, 175, 211, 0.3);
+
+
+.lists {
+  background-color: rgba(235, 175, 211, 0.3);
   width: 100%;
   height: auto;
-  display:flex;
+  display: flex;
 }
+
 .eachlist {
   background-color: rgba(82, 153, 246, 0.3);
   width: 90%;
   height: auto;
   justify-self: center;
-}
-input{
-
   
 }
-.display {
-  width :50px;
-  height: 20px;
-  background-color: aqua;
+
+li {
+  background-color: rgb(255, 186, 186);
+  width: 200px;
+  height: auto;
 }

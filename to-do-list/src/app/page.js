@@ -1,75 +1,41 @@
 "use client"
 import { useState } from "react";
-
-function Inputvalue() {
-  const [outputvalue, setOutputvalue] = useState([])
-  const [inputvalue, setInputvalue] = useState("")
-
-  const change = (event) => {
-    setInputvalue(event.target.value)
-  }
-
-  outputvalue.push(inputvalue)
-const show =()=>{
-
-setOutputvalue(outputvalue)
-console.log(outputvalue)
-}
-  return (
-    <>
-      <input type="text" value={inputvalue} onChange={change} placeholder="add plan here"></input>
-      <button onClick={show}>show</button>
-      <div className="display">{outputvalue}</div>
-    </>
-  )
-}
-
-function InputSection() {
-  return (
-    <>
-      <Inputvalue></Inputvalue>
-    </>
-  )
-}
-
-function List() {
-  return (
-    <>
-      <div className="eachlist">list-1
-      </div>
-      <button>X</button>
-    </>
-  )
-}
-
-function Lists() {
-  return (
-    <>
-      <div className="lists"> lists
-        <List></List>
-      </div>
-    </>
-
-  )
-}
-
-function ListSection() {
-  return (<>
-    <div className="list-container">list container
-      <Lists></Lists>
-    </div>
-  </>
-  )
-}
-
+import { useEffect } from "react";
 
 
 export default function Home() {
+  const [inputtext, setInputtext] = useState("")
+  const change = (event) => setInputtext(event.target.value);
+  const [listcontainer, setListcontainer] = useState([]);
+  const [list, setList] = useState("")
+
+
+  function add() {
+    setListcontainer([...listcontainer,inputtext])
+    console.log(listcontainer)
+  }
+
+
+
+  function clearText() {
+    setInputtext("")
+  }
+
+  function deleteList() {
+
+  }
   return (
     <>
       <div className="to-do-list-container">
-        <InputSection></InputSection>
-        <ListSection></ListSection>
+        <input type="text" value={inputtext} onChange={change}></input>
+        <div>
+          <button onClick={add}>ADD</button>
+          <button onClick={clearText}>CLEAR</button>
+        </div>
+        <div style={{ display: "flex", width: "100%", gap: "20px" }} >
+          <div className="lists">{list}</div>  
+          <button className="">X</button></div>
       </div>
-    </>)
+    </>
+  )
 }
