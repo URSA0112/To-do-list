@@ -1,29 +1,33 @@
-"use client"
+"use client";
 import { useState } from "react";
 import { useEffect } from "react";
+const inputvalues = [
+  {
+    key: 1, //(any)address for map , identify , search , find , ....
+    text: "take a shower", //(text)inputvalue
+    done: false, //(boolean)status ... for change
+  },
+  {
+    key: 2,
+    text: "ayga ugaah",
+    done: false,
+  },
 
-
+];
 export default function Home() {
-  const [inputtext, setInputtext] = useState("")
+  const [inputtext, setInputtext] = useState("");
   const change = (event) => setInputtext(event.target.value);
-  const [listcontainer, setListcontainer] = useState([]);
-  const [list, setList] = useState("")
+  const [lists, setLists] = useState(inputvalues);
+  const dynalist = lists.map((each) => <li>{each.text}</li>);
 
-
+  //const dynalists = lists.map((each)=>{return each})
   function add() {
-    setListcontainer([...listcontainer,inputtext])
-    console.log(listcontainer)
+    return console.log(dynalist);
   }
-
-
-
   function clearText() {
-    setInputtext("")
+    setInputtext("");
   }
 
-  function deleteList() {
-
-  }
   return (
     <>
       <div className="to-do-list-container">
@@ -32,10 +36,11 @@ export default function Home() {
           <button onClick={add}>ADD</button>
           <button onClick={clearText}>CLEAR</button>
         </div>
-        <div style={{ display: "flex", width: "100%", gap: "20px" }} >
-          <div className="lists">{list}</div>  
-          <button className="">X</button></div>
+        <div className="lists"style={{ display: "flex", width: "100%", gap: "20px" }}>
+          <div className="eachlist-container">{dynalist}</div>
+          <button className="">X</button>
+        </div>
       </div>
     </>
-  )
+  );
 }

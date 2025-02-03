@@ -21,9 +21,11 @@
   width: 100%;
   height: auto;
   display: flex;
+  justify-content: space-between;
+ 
 }
 
-.eachlist {
+.eachlist-container {
   background-color: rgba(82, 153, 246, 0.3);
   width: 90%;
   height: auto;
