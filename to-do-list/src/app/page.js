@@ -13,10 +13,11 @@ export default function Home() {
   function add() {
     if (saveinputvalue !== "")
       setSaveinputvalue((saveinputvalue) => [...saveinputvalue, inputtext])
+    setInputtext("")
     return console.log(saveinputvalue)
   }
-  const list = saveinputvalue.map((each,index) => <li key={index}>{each}<button className="">X</button></li>)
- 
+  const list = saveinputvalue.map((each, index) => <li key={index}>{each}<button className="">X</button></li>)
+
 
 
   function clearText() {
