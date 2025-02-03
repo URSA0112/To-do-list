@@ -25,11 +25,12 @@
  
 }
 
-.eachlist-container {
+.eachlist {
   background-color: rgba(82, 153, 246, 0.3);
   width: 90%;
   height: auto;
   justify-self: center;
+
   
 }
 
@@ -37,4 +38,6 @@ li {
   background-color: rgb(255, 186, 186);
   width: 200px;
   height: auto;
+  display: flex;
+  justify-content: space-between;
 }
