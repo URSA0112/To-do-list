@@ -4,37 +4,11 @@ import { useState } from "react";
 // import { Tabs } from "../app/components/Tabs/tabs.js";
 // import { Input } from "../app/components/Input/input.js";
 // import { Lists } from "../app/components/List/list.js";
-
-function Tabs() {
+function Title() {
   return (
-    <div className="tabs-container">
-      <button className="tab-button" style={{ width: "38px" }}>
-        All
-      </button>
-      <button className="tab-button" style={{ width: "60px" }}>
-        Active
-      </button>
-      <button className="tab-button" style={{ width: "87px" }}>
-        Completed
-      </button>
-    </div>
-  );
-}
-
-function Lists() {
-  const list = saveinputvalue.map(
-    (each,index ) => (
-      <li key={index}>
-        {each}
-        <button onClick></button>
-      </li>
-    )
-  );
-
-  return (
-    <div className="lists">
-      <ul className="eachlist">{list}</ul>
-    </div>
+    <>
+      <div className="title">To do list</div>
+    </>
   );
 }
 
@@ -49,9 +23,7 @@ function Input() {
       setSaveinputvalue((saveinputvalue) => [...saveinputvalue, inputtext]); //saveinputvalue = array
     }
     setInputtext("");
-Lists()
   }
-
   return (
     <div className="inputsection">
       <div className="input-container">
@@ -69,24 +41,45 @@ Lists()
     </div>
   );
 }
+function Lists() {
+  // const list = saveinputvalue.map((each, index) => (            //list = array 
+  //   <li key={index}>
+  //     {each}
+  //     <button onClick></button>
+  //   </li>
+  // ));
 
-function Title() {
   return (
-    <>
-      <div className="title">To do list</div>
+    <div className="lists">
+      <ul className="eachlist"></ul>
+    </div>
+  );
+}
+function Tabs() {
+  return (<>
+    <div className="tabs-container">
+      <button className="tab-button" style={{ width: "38px" }}>
+        All
+      </button>
+      <button className="tab-button" style={{ width: "60px" }}>
+        Active
+      </button>
+      <button className="tab-button" style={{ width: "87px" }}>
+        Completed
+      </button>
+ 
+    </div>     
+    <Lists></Lists>
     </>
   );
 }
-
 export default function Home(props) {
   return (
     <div className="pages">
       <div className="to-do-list-container">
         <Title></Title>
         <Input></Input>
-        <Tabs>
-          <Lists></Lists>
-        </Tabs>
+        <Tabs></Tabs>
       </div>
     </div>
   );
