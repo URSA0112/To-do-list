@@ -1,86 +1,44 @@
-// "use client"
-// import { useState } from "react";
-// import { useEffect } from "react";
+"use client";
+import { useState } from "react";
+import { useEffect } from "react";
 
-// function Inputvalue() {
-//   const [outputvalue, setOutputvalue] = useState([]);
-//   const [inputvalue, setInputvalue] = useState("");
+export default function Home() {
+  const [inputtext, setInputtext] = useState("");
+  const change = (event) => setInputtext(event.target.value);
+  const [saveinputvalue, setSaveinputvalue] = useState([]);
 
-//   const add = () => {
-//     setOutputvalue([...outputvalue, inputvalue]);
-//        outputvalue.map((each, index) => <li key={index}>{each}</li>);
-  
-//   }
+ 
 
-//   const clear = () => {
-//     setInputvalue("")
+  function add() {
+    if (saveinputvalue !== "" && inputtext !== "") {
+      setSaveinputvalue((saveinputvalue) => [...saveinputvalue, inputtext]);  //saveinputvalue = array
+    }
+    setInputtext("");
+    return console.log(saveinputvalue);
+  }
+  const list = saveinputvalue.map((each, index) => (            //list = array 
+    <li key={index}>
+      {each}
+      <button onClick></button>
+    </li>
+  ));
 
-//   }
-//   return (
-//     <>
-//       <input type="text"
-//         value={inputvalue}
-//         onChange={(e) => setInputvalue(e.target.value)}
-//         placeholder="add plan here">
-//       </input >
-//       <div>
-//         <button onClick={add}>add</button>
-//         <button onClick={clear}>clean</button></div>
-//       <div className="display">{outputvalue}</div>
+  function clearText() {
+    setInputtext("");
+  }
 
-
-//     </>
-//   )
-
-// }
-
-// function InputSection() {
-//   return (
-//     <>
-//       <Inputvalue></Inputvalue>
-//     </>
-//   )
-// }
-
-// function List() {
-//   return (
-//     <>
-//       <div className="eachlist">list-1
-//       </div>
-//       <button>X</button>
-//     </>
-//   )
-// }
-
-// function Lists() {
-//   return (
-//     <>
-//       <div className="lists"> lists
-//         <List></List>
-//       </div>
-//     </>
-
-//   )
-// }
-
-// function ListSection() {
-//   return (<>
-//     <div className="list-container">list container
-//       <Lists></Lists>
-//     </div>
-//   </>
-//   )
-// }
-
-
-
-// export default function Home() {
-
-//   return (
-//     <>
-//       <div className="to-do-list-container">
-//         <InputSection></InputSection>
-//         <ListSection></ListSection>
-//       </div>
-//     </>)
-// }
+  return (
+    <>
+      <div className="to-do-list-container">
+        <input type="text" value={inputtext} onChange={change}></input>
+        <div>
+          <button onClick={add}>ADD</button>
+          <button onClick={clearText}>CLEAR</button>
+        </div>
+        <div className="lists">
+          <ul className="eachlist">{list}</ul>
+        </div>
+      </div>
+    </>
+  );
+}
