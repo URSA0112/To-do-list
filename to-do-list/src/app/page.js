@@ -4,6 +4,21 @@ import { useState } from "react";
 // import { Tabs } from "../app/components/Tabs/tabs.js";
 // import { Input } from "../app/components/Input/input.js";
 // import { Lists } from "../app/components/List/list.js";
+
+export default function Home(props) {
+  const [saveinputvalue, setSaveinputvalue] = useState([]);
+  
+  return (
+    <div className="pages">
+      <div className="to-do-list-container">
+        <Title></Title>
+        <Input></Input>
+        <Output></Output>
+      </div>
+    </div>
+  );
+}
+
 function Title() {
   return (
     <>
@@ -11,18 +26,21 @@ function Title() {
     </>
   );
 }
-
+//--------
 function Input() {
-  const [inputtext, setInputtext] = useState("");
-  const change = (event) => setInputtext(event.target.value);
-  const [saveinputvalue, setSaveinputvalue] = useState([]);
 
   //ADD function
   function add() {
-    if (saveinputvalue !== "" && inputtext !== "") {
-      setSaveinputvalue((saveinputvalue) => [...saveinputvalue, inputtext]); //saveinputvalue = array
-    }
-    setInputtext("");
+    if (savedinputvalue !== "" && inputtext !== "") {
+      setSaveinputvalue((savedinputvalue) => [...savedinputvalue, inputtext]); //savedinputvalue = array
+    setInputtext(""); }
+    const list = savedinputvalue.map((each, index) => (            //list = array 
+      <li key={index}>
+        {each}
+        <button onClick>X</button>
+      </li>
+    ));
+  
   }
   return (
     <div className="inputsection">
@@ -41,21 +59,16 @@ function Input() {
     </div>
   );
 }
+//--------
 function Lists() {
-  // const list = saveinputvalue.map((each, index) => (            //list = array 
-  //   <li key={index}>
-  //     {each}
-  //     <button onClick></button>
-  //   </li>
-  // ));
-
   return (
     <div className="lists">
-      <ul className="eachlist"></ul>
+      <ul className="eachlist">{list}</ul>
     </div>
   );
 }
-function Tabs() {
+//--------
+function Output() {
   return (<>
     <div className="tabs-container">
       <button className="tab-button" style={{ width: "38px" }}>
@@ -71,16 +84,5 @@ function Tabs() {
     </div>     
     <Lists></Lists>
     </>
-  );
-}
-export default function Home(props) {
-  return (
-    <div className="pages">
-      <div className="to-do-list-container">
-        <Title></Title>
-        <Input></Input>
-        <Tabs></Tabs>
-      </div>
-    </div>
   );
 }
