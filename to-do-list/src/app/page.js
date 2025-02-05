@@ -11,41 +11,24 @@ import { Output } from "./components/Output/output.js";
 // }]
 
 export default function Home() {
-  const [inputvalue, setInputvalue] = useState();
+  const [inputvalue, setInputvalue] = useState("");
   const change = (event) => setInputvalue(event.target.value);
-  const [saveinputvalue, setSaveinputvalue] = useState([]);
+  const [savedinputvalue, setSavedinputvalue] = useState([]);
 
   function addnewinput() {
-   
-    if (inputvalue) {
-      setSaveinputvalue([...saveinputvalue, {text:inputvalue}]);
-      setInputvalue("");
-   
-    }  
-    const eachlist =saveinputvalue.map(each=>each)
-    console.log(eachlist)
+    if (inputvalue)
+      setSavedinputvalue([...savedinputvalue, { text: inputvalue, done: false, id: Date.now() }]);
 
   }
-  
-  // const list = saveinputvalue.map((each, index) => {
+  const inputTexts = savedinputvalue.map((each) => { return <li key={each.id}>{each.text}</li> })
 
-  //   return (
-  //     <li key={index}>
-  //       {each}
-  //       <div>
-  //         <button>edit</button>
-  //         <button>delete</button>
-  //       </div>
-  //     </li>
-  //   );
-  // });
 
   return (
     <div className="pages">
       <div className="to-do-list-container">
         <Title></Title>
-        <Input inputtext={inputvalue} change={change} add={addnewinput}></Input>
-        <Output ></Output>
+        <Input value={inputvalue} change={change} add={addnewinput}></Input>
+        <Output list={inputTexts}></Output>
       </div>
     </div>
   );
