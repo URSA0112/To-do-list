@@ -28,12 +28,14 @@
   justify-content: center;
   align-items: center;
 }
+
 .inputsection {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
+
 .input-container {
   width: 280px;
   height: 38px;
@@ -59,6 +61,7 @@ input {
   height: 100%;
   width: 100%;
 }
+
 .addbutton {
   width: 59px;
   height: 40px;
@@ -81,6 +84,7 @@ input {
   margin-bottom: 10px;
   justify-self: center;
 }
+
 .tab-button {
   border: none;
   border-radius: 6px;
@@ -122,17 +126,28 @@ input {
 } */
 
 li {
-  background-color: rgba(255, 197, 197, 0.16);
+  background-color: rgba(87, 253, 68, 0.16);
   width: 300px;
   height: 30px;
   border: 1px, solid, rgb(123, 61, 224);
   font-size: 20px;
   padding: 2px;
-  margin-top:6px;
+  margin-top: 6px;
   display: flex;
   justify-content: space-between;
-} 
+}
 
-button{
-  min-width: 30px;
+.listbuttons-container {
+  display: flex;
+  gap: 10px;
+
+}
+
+.listbutton {
+  width: 50px;
+  height: 25px;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  color: #ffffff;
 }
