@@ -26,8 +26,6 @@ export default function Home() {
     console.log(eachlist)
 
   }
-
-
   
   // const list = saveinputvalue.map((each, index) => {
 
