@@ -1,6 +1,6 @@
 .pages {
   margin: 0;
-
+  background-color: black;
   width: 100%;
   height: 100vh;
   padding-top: 200px;
@@ -33,7 +33,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .input-container {
@@ -102,52 +101,44 @@ input {
   align-items: center;
 }
 
-
 .lists {
   background-color: rgba(160, 245, 176, 0.3);
   display: flex;
+  align-items: center;
   flex-direction: column;
   width: 100%;
   height: 300px;
-
 }
 
-/* .eachlist {
-  background-color: rgba(77, 154, 255, 0.3);
-  width: 100%;
+.eachlist {
+  width: 300px;
   height: auto;
   justify-self: center;
   border: 1px, solid, black;
   display: flex;
-  flex-direction: column;
-  gap: 5px;
-  
-  
-} */
-
-li {
-  background-color: rgba(87, 253, 68, 0.16);
-  width: 300px;
-  height: 30px;
-  border: 1px, solid, rgb(123, 61, 224);
-  font-size: 20px;
-  padding: 2px;
-  margin-top: 6px;
-  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
+li {
+  font-size: 18px;
+  padding: 2px;
+  display: flex;
+}
+
 .listbuttons-container {
+  position: relative;
+  right: 5px;
   display: flex;
   gap: 10px;
-
 }
 
 .listbutton {
   width: 50px;
-  height: 25px;
-  margin: auto;
+  height: 20px;
   background-color: rgba(0, 0, 0, 0.5);
-
   color: #ffffff;
+}
+ul {
+  padding: 0;
 }

@@ -15,34 +15,40 @@ export default function Home() {
   const change = (event) => setInputtext(event.target.value);
   const [savedata, setSavedata] = useState([]);
 
-  const list = (savedata.map((each,index) => {
-  return <li key={each.id} >{each.text}
-    <div className="listbuttons-container">
-      <button className="listbutton" onClick={()=>listEdit(index)} >edit</button>
-      <button className="listbutton" onClick={()=>listDelete(index)} >delete</button>
-    </div></li>}))
-
-const data = savedata
+  const list = savedata.map((each, index) => {
+    return (
+      <div className="eachlist">
+        <li key={each.id}>{each.text}</li>{" "}
+        <div className="listbuttons-container">
+          <button className="listbutton" onClick={() => listEdit(index)}>
+            edit
+          </button>
+          <button className="listbutton" onClick={() => listDelete(index)}>
+            delete
+          </button>
+        </div>
+      </div>
+    );
+  });
 
   function addnewinput() {
     if (inputtext)
-      setSavedata((savedata) => [...savedata, { text: inputtext, id: Date.now(), done: false, }])
-    setInputtext("")
+      setSavedata((savedata) => [
+        ...savedata,
+        { text: inputtext, id: Date.now(), done: false },
+      ]);
+    setInputtext("");
   }
 
   function listEdit(index) {
-    const newText = prompt("Edit your task:", savedata[index].text); // Ask user for new text
-  
-    if (newText !== null) { // If user didn't cancel
-      const updatedTasks = [...savedata]; // Copy the current tasks
-      updatedTasks[index].text = newText; // Update the specific task text
-      setSavedata(updatedTasks); // Set the updated array to state
-    }
+    const newSavedata = [...savedata];
+    const updatedlist = prompt("EDIT YOUR LIST", newSavedata[index].text);
+    if (updatedlist || updatedlist !== null)
+      newSavedata[index].text = updatedlist;
+    setSavedata(newSavedata);
   }
-  
-  function listDelete() {
 
-  }
+  function listDelete() {}
   return (
     <div className="pages">
       <div className="to-do-list-container">
