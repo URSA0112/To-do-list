@@ -8,29 +8,30 @@ export default function Home() {
   const [inputtext, setInputtext] = useState("");
   const change = (event) => setInputtext(event.target.value);
   const [savedata, setSavedata] = useState([]);
- 
-  const ischecked= ()=>{}
+  const newdata = [...savedata]
+  const eachIscompleted = newdata.map((each) => each.done)
 
   const list = savedata.map((each, index) => {
     return (
-      <div className="eachlist">
-        <li key={each.id}>
-          {each.text}
-          <div className="listbuttons-container">
-            <input
-              type="checkbox"
-              className="checkbutton"
-              onClick={ischecked}
-              onChange={(e) => ischecked(e.target.checked)}
-            ></input>
-            <button className="listbutton" onClick={() => listEdit(index)}>
-              edit
-            </button>
-            <button className="listbutton" onClick={() => listDelete(index)}>
-              delete
-            </button>
-          </div>
-        </li>
+      <div className="eachlist">        
+      <input
+        type="checkbox"
+        className="checkbutton"
+        checked={Boolean}
+        onChange={Boolean}>
+
+      </input>
+        <li key={each.id}>{each.text} </li>
+        <div className="listbuttons-container">
+
+          <button className="listbutton" onClick={() => listEdit(index)}>
+            edit
+          </button>
+          <button className="listbutton" onClick={() => listDelete(index)}>
+            delete
+          </button>
+        </div>
+
       </div>
     );
   });
@@ -59,9 +60,13 @@ export default function Home() {
     }
   }
 
-  const all = () => {};
-  const active = () => {};
-  const completed = () => {};
+  const all = () => { };
+  const active = () => { };
+  const completed = () => {
+    console.log(ischecked)
+
+
+  };
 
   const deleteAll = () => {
     if (window.confirm("Delete all tasks ?")) {

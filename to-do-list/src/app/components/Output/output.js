@@ -16,7 +16,7 @@ export function Output(props) {
         </button>
       </div>
       <div className="lists">
-        <span className="eachlist">{props.lists}</span>
+        <span className="list">{props.lists}</span>
       </div>
     </>
   );
