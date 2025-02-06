@@ -1,6 +1,5 @@
 .pages {
   margin: 0;
-  background-color: black;
   width: 100%;
   height: 100vh;
   padding-top: 200px;
@@ -9,6 +8,7 @@
 .to-do-list-container {
   background-color: #ffffff;
   width: 377px;
+  height: auto;
   margin: 0 auto;
   gap: 10px;
   padding: 20px;
@@ -108,22 +108,29 @@ input {
   flex-direction: column;
   width: 100%;
   height: 300px;
+  overflow: scroll;
 }
 
 .eachlist {
-  width: 300px;
+  width: 320px;
   height: auto;
   justify-self: center;
-  border: 1px, solid, black;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-direction: column;
+  gap:10px;
 }
 
 li {
   font-size: 18px;
   padding: 2px;
   display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border: 1px, solid, black;
+
+
 }
 
 .listbuttons-container {
@@ -141,4 +148,7 @@ li {
 }
 ul {
   padding: 0;
+}
+.checkbutton {
+  background-color: #3c82f6;
 }

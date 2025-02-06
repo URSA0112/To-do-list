@@ -8,7 +8,8 @@ export default function Home() {
   const [inputtext, setInputtext] = useState("");
   const change = (event) => setInputtext(event.target.value);
   const [savedata, setSavedata] = useState([]);
-
+ 
+  const ischecked= ()=>{}
 
   const list = savedata.map((each, index) => {
     return (

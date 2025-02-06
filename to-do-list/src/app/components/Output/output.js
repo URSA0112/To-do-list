@@ -2,27 +2,21 @@ export function Output(props) {
   return (
     <>
       <div className="tabs-container">
-        <button className=" "
-         onClick={props.activebutton}
-        style={{ width: "38px" }}>
+        <button className="" onClick={props.showAll} style={{ width: "38px" }}>
           All
         </button>
-
-        <button className=""
-
-        style={{ width: "60px" }}>
+        <button className="" onClick={props.showActive} style={{ width: "60px" }}>
           Active
         </button>
-
-        <button className=""
-
-        style={{ width: "87px" }}>
+        <button className="" onClick={props.showCompleted}style={{ width: "87px" }}>
           Completed
+        </button>
+        <button className="" onClick={props.deleteAll}style={{ width: "87px" }}>
+         Delete all
         </button>
       </div>
       <div className="lists">
-        <ul className="eachlist">{props.lists}</ul>
-        
+        <span className="eachlist">{props.lists}</span>
       </div>
     </>
   );
