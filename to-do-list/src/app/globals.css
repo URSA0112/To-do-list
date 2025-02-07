@@ -1,8 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+
 .pages {
   margin: 0;
   width: 100%;
   height: 100vh;
   padding-top: 200px;
+  font-family: "Inter", sans-serif;
 }
 
 .to-do-list-container {
@@ -11,15 +14,15 @@
   height: auto;
   margin: 0 auto;
   gap: 10px;
-  padding: 20px;
+  padding: 15px;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.16);
-  border-radius: 6px;
+  border-radius: 12px;
 }
 
 .title {
   width: 345px;
   height: 28px;
-  font-weight: 600;
+  font-weight: 400;
   font-size: 20px;
   line-height: 28px;
   gap: 0px;
@@ -27,6 +30,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: rgba(0, 0, 0, 0.85);
 }
 
 .inputsection {
@@ -48,12 +52,10 @@
 
 input {
   font-family: Inter;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 16.94px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
   border: none;
   padding: 0;
   margin: 0.2px;
@@ -63,7 +65,7 @@ input {
 
 .addbutton {
   width: 59px;
-  height: 40px;
+  height: 38px;
   padding: 8px 16px 8px 16px;
   margin: 0;
   gap: 10px;
@@ -72,6 +74,7 @@ input {
   margin-left: 6px;
   background-color: #3c82f6;
   color: #ffffff;
+  font-size: 16px;
 }
 
 .tabs-container {
@@ -82,23 +85,6 @@ input {
   margin-top: 10px;
   margin-bottom: 10px;
   justify-self: center;
-}
-
-.tab-button {
-  border: none;
-  border-radius: 6px;
-  height: 32px;
-  font-weight: 400px;
-  font-size: 12px;
-  background-color: #f3f4f6;
-  font-weight: 400;
-  line-height: 14.52px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .lists {
@@ -123,7 +109,9 @@ input {
 
 li {
   margin: 0;
-  font-size: 18px;
+  font-size: 14px;
+  font-size: 14px;
+  font-weight: 200;
   padding: 2px;
   text-align: center;
   width: 180px;
@@ -135,7 +123,7 @@ li {
   position: relative;
   right: 5px;
   display: flex;
-  gap: 10px;
+  gap: 2px;
   align-items: center;
 }
 
@@ -144,8 +132,8 @@ li {
   height: auto;
   border: none;
   text-align: center;
-  font-size: 20px;
-  background-color: white;
+  font-size: 18px;
+  background-color: rgb(255, 255, 255);
 }
 
 ul {
@@ -161,4 +149,53 @@ ul {
 
 .completed {
   text-decoration: line-through;
+}
+.activebtn {
+  background: linear-gradient(135deg, #9a46f4, #357efa);
+  color: rgb(255, 255, 255);
+  font-weight: 400;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(121, 168, 238, 0.4);
+  transition: all 0.3s ease-in-out;
+  transform: scale(1.05);
+}
+
+.activebtn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 6px rgba(255, 118, 136, 0.5);
+}
+
+.delete-allbtn {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 34, 0.8),
+    rgba(255, 0, 0, 0.5)
+  );
+  color: rgb(255, 255, 255);
+  font-weight: 300;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(217, 4, 41, 0.4);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+}
+.delete-allbtn:active {
+  transform: scale(1.19);
+}
+button {
+  background-color: rgba(210, 210, 210, 0.2);
+  color: rgba(103, 103, 103, 0.86);
+  border: none;
+  border-radius: 10%;
+  font-size: 13px;
+  font-weight: 100;
+}
+
+input::placeholder {
+  color: #939393;
+  font-size: 14px;
+  padding-left: 8px;
+  opacity: 1; /* Ensure it's fully visible */
 }

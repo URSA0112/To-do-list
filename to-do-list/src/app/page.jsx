@@ -3,47 +3,23 @@ import { useState } from "react";
 import { Title } from "./components/Title/title.js";
 import { Input } from "./components/Input/input.js";
 import { Output } from "./components/Output/output.js";
+import useLocalStorage from "use-local-storage-state";
 
-export default function Home() {
+export default function Home() {  
+  const [savedata, setSavedata] =useLocalStorage("tasks", { defaultValue: [] });
   const [inputtext, setInputtext] = useState("");
   const change = (event) => setInputtext(event.target.value);
-  const [savedata, setSavedata] = useState([]);
   const [filter, setFilter] = useState("all");
-
+//---------------->
   const filteredTasks = savedata.filter((each) => {
     if (filter === "active") return !each.done;
-    if (filter === "completed") return each.done; 
+    else if (filter === "completed") return each.done; 
     return true; 
   });
-
-  function clickAll() {
-    setFilter("all");
-  }
-  
-  function clickActive() {
- setFilter("active")
-  }
-  
-  function clickCompleted() {
-    setFilter("completed");
-  }
-  
-
-  function Togglecompleted(index) {
-    const newdata = [...savedata];
-    newdata[index].done = !newdata[index].done;
-    setSavedata(newdata);
-    console.log(newdata[index].done);
-  }
-
-  function checkIfcompleted(index) {
-    const newdata = [...savedata];
-    return newdata[index].done ? "completed" : "";
-  }
-
+  //---------------------->
   const list =filteredTasks.map((each, index) => {
     return (
-      <div className="eachlist">
+      <div className="eachlist" key = {each.id}>
         <input
           type="checkbox"
           className="checkbutton"
@@ -54,16 +30,25 @@ export default function Home() {
           {each.text}{" "}
         </li>
         <div className="listbuttons-container">
-          <button className="listbutton" onClick={() => listEdit(index)}>
-         ✏️
+          <button className="listbutton" onClick={() => listEdit(index)}>✏️
           </button>
-          <button className="listbutton" id = "eachDelete-button" onClick={() => listDelete(index)}>
-🗑
+          <button className="listbutton" id = "eachDelete-button" onClick={() => listDelete(index)}>🗑
           </button>
         </div>
       </div>
     );
   });
+//-------------->
+  function clickAll() {setFilter("all");}
+  function clickActive() {setFilter("active")}
+  function clickCompleted() {setFilter("completed");}
+
+  function Togglecompleted(index) {
+    const newdata = [...savedata];
+    newdata[index].done = !newdata[index].done;
+    setSavedata(newdata);
+    console.log(newdata[index].done);
+  }
 
   function addnewinput() {
     if (inputtext)
@@ -100,6 +85,7 @@ export default function Home() {
       addnewinput();
     }
   };
+
   return (
     <div className="pages">
       <div className="to-do-list-container">
@@ -117,7 +103,7 @@ export default function Home() {
           all={clickAll}
           active={clickActive}
           completed={clickCompleted}
-          filter={filter}
+          filter={filter}    
         ></Output>
       </div>
     </div>
