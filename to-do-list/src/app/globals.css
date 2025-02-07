@@ -66,15 +66,17 @@ input {
 .addbutton {
   width: 59px;
   height: 38px;
-  padding: 8px 16px 8px 16px;
+  /* padding: 8px 16px 8px 16px; */
   margin: 0;
   gap: 10px;
   border-radius: 6px;
   border: none;
   margin-left: 6px;
-  background-color: #3c82f6;
+  background-color:  #357efa;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 300;
+
 }
 
 .tabs-container {
