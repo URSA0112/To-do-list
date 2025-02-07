@@ -8,30 +8,59 @@ export default function Home() {
   const [inputtext, setInputtext] = useState("");
   const change = (event) => setInputtext(event.target.value);
   const [savedata, setSavedata] = useState([]);
-  const newdata = [...savedata]
-  const eachIscompleted = newdata.map((each) => each.done)
+  const [filter, setFilter] = useState("all");
 
-  const list = savedata.map((each, index) => {
+  const filteredTasks = savedata.filter((each) => {
+    if (filter === "active") return !each.done;
+    if (filter === "completed") return each.done; 
+    return true; 
+  });
+
+  function clickAll() {
+    setFilter("all");
+  }
+  
+  function clickActive() {
+ setFilter("active")
+  }
+  
+  function clickCompleted() {
+    setFilter("completed");
+  }
+  
+
+  function Togglecompleted(index) {
+    const newdata = [...savedata];
+    newdata[index].done = !newdata[index].done;
+    setSavedata(newdata);
+    console.log(newdata[index].done);
+  }
+
+  function checkIfcompleted(index) {
+    const newdata = [...savedata];
+    return newdata[index].done ? "completed" : "";
+  }
+
+  const list =filteredTasks.map((each, index) => {
     return (
-      <div className="eachlist">        
-      <input
-        type="checkbox"
-        className="checkbutton"
-        checked={Boolean}
-        onChange={Boolean}>
-
-      </input>
-        <li key={each.id}>{each.text} </li>
+      <div className="eachlist">
+        <input
+          type="checkbox"
+          className="checkbutton"
+          checked={each.done}
+          onChange={() => Togglecompleted(index)}
+        ></input>
+        <li className={each.done ? "completed" : ""} key={each.id}>
+          {each.text}{" "}
+        </li>
         <div className="listbuttons-container">
-
           <button className="listbutton" onClick={() => listEdit(index)}>
-            edit
+         ✏️
           </button>
-          <button className="listbutton" onClick={() => listDelete(index)}>
-            delete
+          <button className="listbutton" id = "eachDelete-button" onClick={() => listDelete(index)}>
+🗑
           </button>
         </div>
-
       </div>
     );
   });
@@ -60,14 +89,6 @@ export default function Home() {
     }
   }
 
-  const all = () => { };
-  const active = () => { };
-  const completed = () => {
-    console.log(ischecked)
-
-
-  };
-
   const deleteAll = () => {
     if (window.confirm("Delete all tasks ?")) {
       setSavedata([]);
@@ -91,10 +112,12 @@ export default function Home() {
         ></Input>
         <Output
           lists={list}
-          showAll={all}
-          showActive={active}
-          showCompleted={completed}
           deleteAll={deleteAll}
+          setFilter={setFilter}
+          all={clickAll}
+          active={clickActive}
+          completed={clickCompleted}
+          filter={filter}
         ></Output>
       </div>
     </div>
